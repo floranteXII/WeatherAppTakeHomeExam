@@ -1,0 +1,104 @@
+{
+  "project_info": {
+    "project_number": "433720400520",
+    "firebase_url": "https://weatherapp-takehomeexam.firebaseio.com",
+    "project_id": "weatherapp-takehomeexam",
+    "storage_bucket": "weatherapp-takehomeexam.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:433720400520:android:affcd6be946354de",
+        "android_client_info": {
+          "package_name": "com.gr8apes.weatherapp_takehomeexam"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "433720400520-l81ftsds7013nqou23m3hrnb1ul3jnoh.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCyDK9MJUgSNMxRKl8gcf_n_xBZOOPP3QA"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:433720400520:android:affcd6be946354de",
+        "android_client_info": {
+          "package_name": "com.gr8apes.weatherapp_takehomeexam.test"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "433720400520-l81ftsds7013nqou23m3hrnb1ul3jnoh.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCyDK9MJUgSNMxRKl8gcf_n_xBZOOPP3QA"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:433720400520:android:affcd6be946354de",
+        "android_client_info": {
+          "package_name": "com.gr8apes.weatherapp_takehomeexam.dev"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "433720400520-l81ftsds7013nqou23m3hrnb1ul3jnoh.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCyDK9MJUgSNMxRKl8gcf_n_xBZOOPP3QA"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

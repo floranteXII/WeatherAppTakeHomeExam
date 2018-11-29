@@ -1,0 +1,134 @@
+apply plugin: 'com.android.application'
+
+// Version Info
+def versionMajor = 3    // backward compatibility
+def versionMinor = 3    // new feature or a major behavior change
+def versionPatch = 3   // fixes or minor patch
+
+android {
+    compileSdkVersion 28
+    defaultConfig {
+        applicationId "com.gr8apes.weatherapp_takehomeexam"
+        minSdkVersion 21
+        targetSdkVersion 28
+
+        versionCode 3333
+        versionName "3.3"
+
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        vectorDrawables.useSupportLibrary = true
+
+        flavorDimensions "default"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    productFlavors {
+
+        /**
+         * Prod Release
+         * */
+        production_build {
+            applicationId "com.gr8apes.weatherapp_takehomeexam"
+       }
+
+        /**
+         * Dev Release
+         * */
+        dev_build {
+            applicationId "com.gr8apes.weatherapp_takehomeexam.dev"
+        }
+
+        /**
+         * Test Release
+         * */
+        build_test {
+            applicationId "com.gr8apes.weatherapp_takehomeexam.test"
+        }
+    }
+}
+
+dependencies {
+    Map<String, String> dependencies = parent.ext.dependencies
+
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation 'com.android.support.constraint:constraint-layout:1.1.3'
+    testImplementation 'junit:junit:4.12'
+
+    //Support libraries
+    implementation dependencies.appCompat
+    implementation dependencies.recyclerView
+    implementation dependencies.card
+    implementation dependencies.design
+
+    implementation dependencies.constraint
+
+    //Butterknife
+    implementation dependencies.butterKnife
+    annotationProcessor dependencies.butterKnifeAnnotationProcessor
+
+    //Rx
+    implementation dependencies.reactiveXJava
+    implementation dependencies.reactiveXAndroid
+
+    //Dagger
+    implementation dependencies.dagger
+    implementation dependencies.daggerSupport
+    annotationProcessor dependencies.daggerProcessor
+    annotationProcessor dependencies.daggerCompiler
+    testAnnotationProcessor dependencies.daggerCompiler
+
+    //Retrofit
+    implementation dependencies.retrofit
+    implementation dependencies.retrofitGson
+    implementation dependencies.retrofitRxJava
+    implementation dependencies.retrofitLogging
+
+    //Room
+    implementation dependencies.room
+    implementation dependencies.roomRxJava
+    annotationProcessor dependencies.roomCompiler
+    testImplementation dependencies.roomTesting
+
+    //Gson
+    implementation dependencies.gson
+
+    //Okhttp3
+    implementation dependencies.okhttp3
+
+    //Glide
+    implementation dependencies.glide
+
+    //Calligraphy
+    implementation dependencies.calligraphy3
+    implementation dependencies.calligraphy3_viewpump
+
+    //Circle ImageView
+    implementation dependencies.circularImageView
+
+    //Snacky
+    implementation dependencies.snacky
+
+    configurations.all {
+        exclude group: 'com.android.support', module: 'support-v13'
+    }
+
+    //Page Indicator
+    implementation dependencies.pageindicator
+    implementation dependencies.pageIndicatorDependencyOmmiter
+
+    //lottie
+    implementation dependencies.lottie
+
+    //Event bus
+    implementation dependencies.greenrobot
+
+    //Location
+    implementation dependencies.googleLocation
+
+}
+apply plugin: 'com.google.gms.google-services'

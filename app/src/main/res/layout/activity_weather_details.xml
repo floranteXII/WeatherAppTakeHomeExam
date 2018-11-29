@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorPrimary"
+    android:orientation="vertical">
+
+    <include layout="@layout/common_toolbar" />
+
+
+    <LinearLayout
+        android:id="@+id/contentLinearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/toolbar"
+        android:background="@color/colorPrimary"
+        android:orientation="vertical"
+        android:padding="@dimen/material_spacing_medium"
+        android:visibility="gone">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <android.support.v7.widget.AppCompatTextView
+                    android:id="@+id/degreeCelsiusTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:text="20"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textSize="96sp" />
+
+                <android.support.v7.widget.AppCompatTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toRightOf="@+id/degreeCelsiusTextView"
+                    android:text=" o"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textSize="@dimen/material_text_size_headline_4" />
+            </RelativeLayout>
+
+            <android.support.v7.widget.AppCompatImageView
+                android:id="@+id/weatherIconImageView"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:layout_gravity="center"
+                app:srcCompat="@drawable/sunny_sample" />
+
+        </LinearLayout>
+
+        <android.support.v7.widget.AppCompatTextView
+            android:id="@+id/weatherDescriptiontTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/material_spacing_medium"
+            android:gravity="center"
+            android:text="Sunny"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="@dimen/material_text_size_headline_5" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <RelativeLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1">
+
+                <android.support.v7.widget.AppCompatTextView
+                    android:id="@+id/minDegreeCelsiusTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:text="Min 20"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textSize="@dimen/material_text_size_headline_5" />
+
+                <android.support.v7.widget.AppCompatTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toRightOf="@+id/minDegreeCelsiusTextView"
+                    android:text=" o"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textSize="@dimen/material_text_size_caption" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1">
+
+                <android.support.v7.widget.AppCompatTextView
+                    android:id="@+id/maxDegreeCelsiusTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:text="Max 20"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textSize="@dimen/material_text_size_headline_5" />
+
+                <android.support.v7.widget.AppCompatTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toRightOf="@+id/maxDegreeCelsiusTextView"
+                    android:text=" o"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textSize="@dimen/material_text_size_caption" />
+            </RelativeLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="@dimen/material_spacing_medium"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:paddingRight="@dimen/material_spacing_small">
+
+            <android.support.v7.widget.AppCompatTextView
+                android:id="@+id/cityTextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="Metro Manila"
+                android:textColor="@color/colorTitleBlack"
+                android:textSize="@dimen/material_text_size_headline_6" />
+
+            <android.support.v7.widget.AppCompatTextView
+                android:id="@+id/countryTextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="PH"
+                android:textColor="@color/colorTitleBlack"
+                android:textSize="@dimen/material_text_size_body_2" />
+
+            <android.support.v7.widget.AppCompatTextView
+                android:id="@+id/windTextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="170kph"
+                android:textColor="@color/colorTitleBlack"
+                android:textSize="@dimen/material_text_size_body_2" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+    <android.support.v7.widget.AppCompatButton
+        android:id="@+id/refreshButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_margin="@dimen/material_spacing_medium"
+        android:background="@color/colorAccent"
+        android:text="Refresh"
+        android:textColor="@color/colorWhite" />
+
+</RelativeLayout>

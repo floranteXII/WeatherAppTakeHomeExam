@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">WeatherApp-TakeHomeExam</string>
+    <string name="title_activity_weather_details">WeatherDetailsActivity</string>
+    <string name="app_id">d5d3c9a2177f318e37537184413ecccd</string>
+    <string name="london_lat">51.509865</string>
+    <string name="london_lon">-0.118092</string>
+    <string name="prague_lat">50.08804</string>
+    <string name="prague_lon">14.42076</string>
+    <string name="san_francisco_lat">37.773972</string>
+    <string name="san_francisco_lon">-122.431297</string>
+</resources>

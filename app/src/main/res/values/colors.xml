@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#fff</color>
+    <color name="colorPrimaryDark">#222222</color>
+    <color name="colorPrimaryLight">#fff</color>
+    <color name="colorAccent">#3091A2</color>
+    <color name="primaryTextColor">#2b2b2b</color>
+
+    <color name="colorTransparent">#00000000</color>
+    <color name="colorWhite">#ffffff</color>
+    <color name="colorBlack">#000000</color>
+    <color name="colorFbBlue">#3b589e</color>
+    <color name="colorGray">#bbbbbb</color>
+    <color name="colorLightGray">#e1e1e1</color>
+    <color name="colorDarkGray">#999999</color>
+    <color name="colorTitleBlack">#222222</color>
+    <color name="colorLightOrange">#ff833a</color>
+    <color name="correctAnswerColor">#30A26C</color>
+    <color name="wrongAnswerColor">#A23031</color>
+</resources>
