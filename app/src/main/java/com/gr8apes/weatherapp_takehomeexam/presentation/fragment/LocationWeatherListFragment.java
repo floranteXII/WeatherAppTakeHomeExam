@@ -4,7 +4,6 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.View;
 
 import com.gr8apes.weatherapp_takehomeexam.R;
@@ -15,7 +14,7 @@ import com.gr8apes.weatherapp_takehomeexam.presentation.contract.LocationWeather
 import com.gr8apes.weatherapp_takehomeexam.presentation.event.Event;
 import com.gr8apes.weatherapp_takehomeexam.presentation.presenter.LocationWeatherPresenter;
 import com.gr8apes.weatherapp_takehomeexam.presentation.utility.GeneralUtils;
-import com.gr8apes.weatherapp_takehomeexam.presentation.utility.Preferences;
+import com.gr8apes.weatherapp_takehomeexam.data.preference.Preferences;
 
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;

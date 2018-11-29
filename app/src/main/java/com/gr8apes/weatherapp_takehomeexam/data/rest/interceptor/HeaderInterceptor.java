@@ -9,7 +9,7 @@ import android.util.Log;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
-import com.gr8apes.weatherapp_takehomeexam.presentation.utility.Preferences;
+import com.gr8apes.weatherapp_takehomeexam.data.preference.Preferences;
 
 import java.io.IOException;
 import java.util.HashMap;

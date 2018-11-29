@@ -5,7 +5,7 @@ import android.os.Bundle;
 
 import com.gr8apes.weatherapp_takehomeexam.R;
 import com.gr8apes.weatherapp_takehomeexam.presentation.utility.LocalizationUtils;
-import com.gr8apes.weatherapp_takehomeexam.presentation.utility.Preferences;
+import com.gr8apes.weatherapp_takehomeexam.data.preference.Preferences;
 
 import java.util.Locale;
 

@@ -33,9 +33,7 @@ import com.google.android.gms.location.LocationSettingsRequest;
 import com.google.android.gms.location.LocationSettingsResult;
 import com.google.android.gms.location.LocationSettingsStatusCodes;
 import com.gr8apes.weatherapp_takehomeexam.R;
-import com.gr8apes.weatherapp_takehomeexam.data.rest.model.current_weather.Coordinate;
 import com.gr8apes.weatherapp_takehomeexam.data.rest.model.current_weather.CurrentWeatherData;
-import com.gr8apes.weatherapp_takehomeexam.data.rest.model.current_weather.Main;
 import com.gr8apes.weatherapp_takehomeexam.presentation.contract.LocationWeatherContract;
 import com.gr8apes.weatherapp_takehomeexam.presentation.dialog.option.Option;
 import com.gr8apes.weatherapp_takehomeexam.presentation.dialog.option.OptionDialog;
@@ -45,7 +43,7 @@ import com.gr8apes.weatherapp_takehomeexam.presentation.presenter.LocationWeathe
 import com.gr8apes.weatherapp_takehomeexam.presentation.utility.GeneralUtils;
 import com.gr8apes.weatherapp_takehomeexam.presentation.utility.ImageLoader;
 import com.gr8apes.weatherapp_takehomeexam.presentation.utility.LocalizationUtils;
-import com.gr8apes.weatherapp_takehomeexam.presentation.utility.Preferences;
+import com.gr8apes.weatherapp_takehomeexam.data.preference.Preferences;
 
 
 import java.text.DecimalFormat;

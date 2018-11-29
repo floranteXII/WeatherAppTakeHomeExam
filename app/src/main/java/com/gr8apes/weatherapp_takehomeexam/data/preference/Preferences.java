@@ -1,4 +1,4 @@
-package com.gr8apes.weatherapp_takehomeexam.presentation.utility;
+package com.gr8apes.weatherapp_takehomeexam.data.preference;
 
 
 import android.content.Context;
