@@ -52,6 +52,7 @@
         android:layout_height="wrap_content"
         android:background="@color/colorTitleBlack"
         android:orientation="horizontal"
+        android:paddingTop="@dimen/material_spacing_large"
         android:visibility="gone">
 
         <LinearLayout

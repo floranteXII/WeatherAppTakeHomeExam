@@ -9,7 +9,6 @@
 
     <include layout="@layout/common_toolbar" />
 
-
     <LinearLayout
         android:id="@+id/contentLinearLayout"
         android:layout_width="match_parent"
@@ -87,12 +86,21 @@
                     android:textSize="@dimen/material_text_size_headline_5" />
 
                 <android.support.v7.widget.AppCompatTextView
+                    android:id="@+id/degree"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_toRightOf="@+id/minDegreeCelsiusTextView"
                     android:text=" o"
                     android:textColor="@color/colorPrimaryDark"
                     android:textSize="@dimen/material_text_size_caption" />
+
+                <android.support.v7.widget.AppCompatTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toRightOf="@+id/degree"
+                    android:text="C"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textSize="@dimen/material_text_size_headline_5" />
             </RelativeLayout>
 
             <RelativeLayout
@@ -110,12 +118,21 @@
                     android:textSize="@dimen/material_text_size_headline_5" />
 
                 <android.support.v7.widget.AppCompatTextView
+                    android:id="@+id/degree2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_toRightOf="@+id/maxDegreeCelsiusTextView"
                     android:text=" o"
                     android:textColor="@color/colorPrimaryDark"
                     android:textSize="@dimen/material_text_size_caption" />
+
+                <android.support.v7.widget.AppCompatTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toRightOf="@+id/degree2"
+                    android:text="C"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textSize="@dimen/material_text_size_headline_5" />
             </RelativeLayout>
         </LinearLayout>
 
@@ -166,7 +183,7 @@
         android:layout_alignParentBottom="true"
         android:layout_margin="@dimen/material_spacing_medium"
         android:background="@color/colorAccent"
-        android:text="Refresh"
+        android:text="@string/refresh"
         android:textColor="@color/colorWhite" />
 
 </RelativeLayout>

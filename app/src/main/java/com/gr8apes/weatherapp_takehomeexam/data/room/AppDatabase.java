@@ -5,6 +5,7 @@ import android.arch.persistence.room.Room;
 import android.arch.persistence.room.RoomDatabase;
 import android.content.Context;
 
+import com.gr8apes.weatherapp_takehomeexam.data.room.dao.CurrentWeatherDataDao;
 import com.gr8apes.weatherapp_takehomeexam.data.room.entities.CurrentWeatherDataEntity;
 
 /**
@@ -16,13 +17,7 @@ public abstract class AppDatabase extends RoomDatabase {
 
     private static AppDatabase instance;
 
-//    public abstract BrochureDao brochureDao();
-//
-//    public abstract FeedDao feedDao();
-//
-//    public abstract LeadDao leadDao();
-//
-//    public abstract SalesRepDao salesRepDao();
+    public abstract CurrentWeatherDataDao currentWeatherDataDao();
 
     public static synchronized AppDatabase getInstance(Context context) {
         if (instance == null) {

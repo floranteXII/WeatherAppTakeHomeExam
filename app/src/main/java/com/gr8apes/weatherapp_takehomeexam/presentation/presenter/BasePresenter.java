@@ -24,7 +24,7 @@ public class BasePresenter<T extends BaseView> {
     public static final String TAG = BasePresenter.class.getSimpleName();
     public static final String ERROR_PARSE = "Error parsing data";
     public static final String ERROR_GENERIC = "Oops… Something wrong happened.";
-    public static final String ERROR_CONNECTION = "Oops… There's something wrong with your connection.";
+    public static final String ERROR_CONNECTION = "You are cuurently offline.";
 
     protected T view;
 
@@ -50,7 +50,9 @@ public class BasePresenter<T extends BaseView> {
 
     protected ErrorResponse getErrorResponse(Throwable e) {
         Log.e(TAG, "getErrorResponse: ", e);
-        if (e instanceof HttpException) {
+        if (e instanceof NoConnectivityException) {
+            return new ErrorResponse(-1, ERROR_CONNECTION);
+        } else if (e instanceof HttpException) {
             if (((HttpException) e).code() == 500) {
                 return new ErrorResponse(-5, ERROR_GENERIC);
             }
@@ -62,8 +64,6 @@ public class BasePresenter<T extends BaseView> {
                 Log.e(TAG, e1.getMessage(), e1);
                 return new ErrorResponse(0, ERROR_PARSE);
             }
-        } else if (e instanceof NoConnectivityException) {
-            return new ErrorResponse(-1, ERROR_CONNECTION);
         }
         return new ErrorResponse(-5, ERROR_GENERIC);
     }

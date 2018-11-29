@@ -12,9 +12,12 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v4.os.ConfigurationCompat;
 import android.support.v7.widget.AppCompatImageView;
 import android.support.v7.widget.AppCompatTextView;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.LinearLayout;
 
@@ -34,11 +37,15 @@ import com.gr8apes.weatherapp_takehomeexam.data.rest.model.current_weather.Coord
 import com.gr8apes.weatherapp_takehomeexam.data.rest.model.current_weather.CurrentWeatherData;
 import com.gr8apes.weatherapp_takehomeexam.data.rest.model.current_weather.Main;
 import com.gr8apes.weatherapp_takehomeexam.presentation.contract.LocationWeatherContract;
+import com.gr8apes.weatherapp_takehomeexam.presentation.dialog.option.Option;
+import com.gr8apes.weatherapp_takehomeexam.presentation.dialog.option.OptionDialog;
 import com.gr8apes.weatherapp_takehomeexam.presentation.fragment.LocationWeatherListFragment;
 import com.gr8apes.weatherapp_takehomeexam.presentation.fragment.RefreshButtonContainerFragment;
 import com.gr8apes.weatherapp_takehomeexam.presentation.presenter.LocationWeatherPresenter;
 import com.gr8apes.weatherapp_takehomeexam.presentation.utility.GeneralUtils;
 import com.gr8apes.weatherapp_takehomeexam.presentation.utility.ImageLoader;
+import com.gr8apes.weatherapp_takehomeexam.presentation.utility.LocalizationUtils;
+import com.gr8apes.weatherapp_takehomeexam.presentation.utility.Preferences;
 
 
 import java.text.DecimalFormat;
@@ -110,6 +117,7 @@ public class MainActivity extends BaseActivity implements
     private GoogleApiClient.ConnectionCallbacks mConnectionCallbacks;
     private GoogleApiClient.OnConnectionFailedListener mOnConnectionFailedListener;
     private Location mLastLocation;
+    private OptionDialog mOptionDialog;
 
     public static void newActivity(Context mContext) {
         Intent intent = new Intent(mContext, MainActivity.class);
@@ -124,6 +132,49 @@ public class MainActivity extends BaseActivity implements
         initFragments();
         initPresenters();
         checkRequiredPermissions();
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.main, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.menu_settings:
+
+                ArrayList<Option> options = new ArrayList<>();
+                options.add(new Option("English", 0));
+                options.add(new Option("Tagalog", 1));
+
+                mOptionDialog = OptionDialog.build("Select Language", options, new OptionDialog.OptionDialogView() {
+                    @Override
+                    public void onClickOption(int optionID) {
+                        Locale locale = ConfigurationCompat.getLocales(getResources().getConfiguration()).get(0);
+                        switch (optionID) {
+                            case 0:
+                                locale = new Locale("en");
+                                Preferences.setString(mContext, Preferences.LANGUAGE, "en");
+                                break;
+                            case 1:
+                                locale = new Locale("fil");
+                                Preferences.setString(mContext, Preferences.LANGUAGE, "fil");
+                                break;
+                        }
+                        LocalizationUtils.setLocale(locale);
+                        LocalizationUtils.setConfigChange(mContext);
+
+                        recreate();
+
+                        mOptionDialog.dismiss();
+                    }
+                });
+                mOptionDialog.show(getSupportFragmentManager(), TAG);
+                break;
+        }
+        return super.onOptionsItemSelected(item);
     }
 
     private void initPresenters() {
@@ -307,14 +358,18 @@ public class MainActivity extends BaseActivity implements
             mRetryContainer.setVisibility(View.VISIBLE);
             return;
         }
-        String appId = "d5d3c9a2177f318e37537184413ecccd";
+        String appId = getString(R.string.app_id);
+        int locationId = Preferences.getInt(mContext, Preferences.LAST_LOC_ID);
         mLocationWeatherPresenter.getLocationWeather(String.valueOf(mLastLocation.getLatitude()),
                 String.valueOf(mLastLocation.getLongitude()),
-                appId);
+                appId,
+                locationId);
     }
 
     @Override
     public void onGetLocationWeatherSuccess(CurrentWeatherData currentWeatherData) {
+        Preferences.setInt(mContext, Preferences.LAST_LOC_ID, currentWeatherData.getId());
+
         String degreeCelsius = new DecimalFormat("#").format(currentWeatherData.getMain().getTemp() - 273.15);
         String minDegreeCelsius = String.format(Locale.US, "%.1f", currentWeatherData.getMain().getTempMin() - 273.15);
         String maxDegreeCelsius = String.format(Locale.US, "%.1f", currentWeatherData.getMain().getTempMax() - 273.15);

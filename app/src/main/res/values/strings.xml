@@ -8,4 +8,5 @@
     <string name="prague_lon">14.42076</string>
     <string name="san_francisco_lat">37.773972</string>
     <string name="san_francisco_lon">-122.431297</string>
+    <string name="refresh">Refresh</string>
 </resources>

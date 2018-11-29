@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.content.res.Configuration;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -39,7 +40,7 @@ import io.github.inflationx.viewpump.ViewPumpContextWrapper;
 public abstract class BaseActivity extends AppCompatActivity implements LoadingView {
 
     public static final int REQUEST_CODE_PERMISSION_LOCATION = 101;
-   public static final String NEVERASKAGAIN = "NEVERASKAGAIN";
+    public static final String NEVERASKAGAIN = "NEVERASKAGAIN";
 
     protected static final int FILE_SELECT_CODE = 0;
 
@@ -106,7 +107,14 @@ public abstract class BaseActivity extends AppCompatActivity implements LoadingV
 
     @Override
     public void showError(@NonNull String errorTag, String message) {
-        showSnackBarError(message, "Okay", null); //todo temporay | replace with the right dialog
+        switch (errorTag) {
+            case "-1":
+                showDialog("Uh oh", "You are currently offline. Weather data may not be real time", "Okay", null);
+                break;
+            default:
+                showSnackBarError(message, "Okay", null);
+
+        }
     }
 
     public void addFragment(int containerViewId, Fragment fragment) {
@@ -283,4 +291,11 @@ public abstract class BaseActivity extends AppCompatActivity implements LoadingV
     public void hideLoading() {
         hideProgressDialog();
     }
+
+    @Override
+    public void onConfigurationChanged(Configuration newConfig) {
+        super.onConfigurationChanged(newConfig);
+    }
+
+
 }

@@ -13,16 +13,9 @@ import android.content.SharedPreferences;
 public class Preferences {
 
     public static String MOBILE = "MOBILE";
-    public final static String FIRST_TIME_OPEN = "FIRST_TIME_OPEN";
-    public final static String API_KEY = "API_KEY";
-    public final static String FCM_TOKEN = "FCM_TOKEN";
-    public final static String PIN_TIMESTAMP = "PIN_TIMESTAMP";
-    public final static String PIN_TRIES = "PIN_TRIES";
-    public final static String LOCK_PHONE = "LOCK_PHONE";
-    public final static String OTP_BLACKLIST_TIMESTAMP = "OTP_BLACKLIST_TIMESTAMP";
-    public final static String OTP_BLACKLIST_LOCK = "OTP_BLACKLIST_LOCK";
-    public final static String BASE_URL = "BASE_URL";
-
+    public final static String LANGUAGE = "LANGUAGE";
+    public static final String API_KEY = "API_KEY";
+    public static final String LAST_LOC_ID = "LAST_LOC_ID";
 
     public Preferences() {
     }

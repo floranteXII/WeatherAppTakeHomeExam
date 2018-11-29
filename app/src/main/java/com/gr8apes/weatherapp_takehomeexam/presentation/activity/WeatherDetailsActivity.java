@@ -123,9 +123,7 @@ public class WeatherDetailsActivity extends BaseActivity implements
 
     @OnClick(R.id.refreshButton)
     void onClick() {
-        String lat = String.valueOf(mCurrentWeatherData.getCoordinate().getLat());
-        String lon = String.valueOf(mCurrentWeatherData.getCoordinate().getLon());
-        mLocationWeatherPresenter.getLocationWeather(lat, lon, getString(R.string.app_id));
+        mLocationWeatherPresenter.getLocationWeather(mCurrentWeatherData, getString(R.string.app_id));
     }
 
     @Override

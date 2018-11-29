@@ -45,7 +45,44 @@ public class LocationWeatherPresenter extends BasePresenter<LocationWeatherContr
                         view.showError(String.valueOf(errorResponse.getStatus()), errorResponse.getMessage());
                     }
                 }));
+    }
 
+    public void getLocationWeather(String lat, String lon, String appId, int locationId) {
+        view.showLoading();
+        unsubscribeOnUnbindView(mLocationWeatherRepository.getLocationWeather(lat, lon, appId, locationId)
+                .subscribe(new Consumer<CurrentWeatherData>() {
+                    @Override
+                    public void accept(CurrentWeatherData currentWeatherData) throws Exception {
+                        view.hideLoading();
+                        view.onGetLocationWeatherSuccess(currentWeatherData);
+                    }
+                }, new Consumer<Throwable>() {
+                    @Override
+                    public void accept(Throwable throwable) throws Exception {
+                        view.hideLoading();
+                        ErrorResponse errorResponse = getErrorResponse(throwable);
+                        view.showError(String.valueOf(errorResponse.getStatus()), errorResponse.getMessage());
+                    }
+                }));
+    }
+
+    public void getLocationWeather(CurrentWeatherData currentWeatherData, String appId) {
+        view.showLoading();
+        unsubscribeOnUnbindView(mLocationWeatherRepository.getLocationWeather(currentWeatherData, appId)
+                .subscribe(new Consumer<CurrentWeatherData>() {
+                    @Override
+                    public void accept(CurrentWeatherData currentWeatherData) throws Exception {
+                        view.hideLoading();
+                        view.onGetLocationWeatherSuccess(currentWeatherData);
+                    }
+                }, new Consumer<Throwable>() {
+                    @Override
+                    public void accept(Throwable throwable) throws Exception {
+                        view.hideLoading();
+                        ErrorResponse errorResponse = getErrorResponse(throwable);
+                        view.showError(String.valueOf(errorResponse.getStatus()), errorResponse.getMessage());
+                    }
+                }));
     }
 
 

@@ -47,7 +47,7 @@ public class BaseApplication extends Application implements HasActivityInjector 
         ViewPump.init(ViewPump.builder()
                 .addInterceptor(new CalligraphyInterceptor(
                         new CalligraphyConfig.Builder()
-                                .setDefaultFontPath("fonts/sf-compact-regular.otf")
+                                .setDefaultFontPath("fonts/cabin-semibold.ttf")
                                 .setFontAttrId(R.attr.fontPath)
                                 .build()))
                 .build());
